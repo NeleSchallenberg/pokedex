@@ -1,4 +1,4 @@
-pokemonList = [
+let pokemonList = [
     {name: 'Farfetch\'d', height: 2.7, type: ['normal', 'flying']},
     {name: 'Ivysaur', height: 3.3, type: ['grass', 'poison']},
     {name: 'Sandile', height: 2.4, type: ['ground', 'dark']},
