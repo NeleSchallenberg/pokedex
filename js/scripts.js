@@ -9,13 +9,17 @@ let pokemonList = [
     {name: 'Gyarados', height: 21, types: ['water', 'flying']}
 ]
 
-// Loop for displaying the pokemon list in browser.
-for (let i=0; i <= pokemonList.length; i++){
+// Function with loop for displaying the pokemon list in browser.
+function printArrayDetails() {
+    for (let i=0; i <= pokemonList.length; i++){
 
-    // Condition to highlight unsually big pokemons in the list
-    if (pokemonList[i]?.height > 7.9){
-        document.write (`${pokemonList[i].name} (height: ${pokemonList[i].height}) - Wow, that\'s big!<br>`);
-    } else {
-        document.write (`${pokemonList[i]?.name} (height: ${pokemonList[i]?.height})<br>`);
+        // Condition to highlight unsually big pokemons in the list
+        if (pokemonList[i]?.height > 7.9){
+            document.write (`${pokemonList[i].name} (height: ${pokemonList[i].height}) - Wow, that\'s big!<br>`);
+        } else {
+            document.write (`${pokemonList[i]?.name} (height: ${pokemonList[i]?.height})<br>`);
+        }
     }
 }
+
+printArrayDetails();
