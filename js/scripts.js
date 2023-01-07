@@ -27,7 +27,7 @@ let pokemonRepository = (function () {
 
 
 
-// Updated forEach loop 
+// Updated forEach loop to retireve pokemonList array
 pokemonRepository.getAll().forEach(function(pokemon) {
     document.write (`<p> ${pokemon.name} (height ${pokemon.height}) </p>`);
     }
