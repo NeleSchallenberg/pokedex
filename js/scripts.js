@@ -25,13 +25,17 @@ let pokemonRepository = (function () {
     
 }) ();
 
-
+pokemonRepository.add(
+    {name: 'Pidgeot', height: 4.11, types: ['normal', 'water']}
+)
 
 // Updated forEach loop to retireve pokemonList array
 pokemonRepository.getAll().forEach(function(pokemon) {
     document.write (`<p> ${pokemon.name} (height ${pokemon.height}) </p>`);
     }
 );
+
+
 
 
 
