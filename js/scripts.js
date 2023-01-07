@@ -27,8 +27,8 @@ let pokemonRepository = (function () {
 
 
 
-// ForEach loop 
-pokemonList.forEach(function(pokemon) {
+// Updated forEach loop 
+pokemonRepository.getAll().forEach(function(pokemon) {
     document.write (`<p> ${pokemon.name} (height ${pokemon.height}) </p>`);
     }
 );
