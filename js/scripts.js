@@ -9,7 +9,23 @@ let pokemonRepository = (function () {
         {name: 'Wyrdeer', height: 5.11, types: ['normal', 'psychic']},
         {name: 'Gyarados', height: 21, types: ['water', 'flying']}
     ]
+
+    function add(pokemon) {
+        pokemonList.push(pokemon);
+    }
+
+    function getAll() {
+        return pokemonList;
+    }
+
+    return {
+        add: add,
+        getAll: getAll
+    }
+    
 }) ();
+
+
 
 // ForEach loop 
 pokemonList.forEach(function(pokemon) {
