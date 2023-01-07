@@ -10,16 +10,25 @@ let pokemonList = [
 ]
 
 // Function with loop for displaying the pokemon list in browser.
-function printArrayDetails() {
-    for (let i=0; i <= pokemonList.length; i++){
+
+/* function printArrayDetails() {
+    for (let i=0; i <= pokemonList.length; i++){ */
 
         // Condition to highlight unsually big pokemons in the list
-        if (pokemonList[i]?.height > 7.9){
+
+        /* if (pokemonList[i]?.height > 7.9){
             document.write (`${pokemonList[i].name} (height: ${pokemonList[i].height}) - Wow, that\'s big!<br>`);
         } else {
             document.write (`${pokemonList[i]?.name} (height: ${pokemonList[i]?.height})<br>`);
         }
     }
-}
+} */
 
-printArrayDetails();
+// printArrayDetails();
+
+// ForEach loop 
+
+pokemonList.forEach(function(pokemon) {
+    document.write (`<p> ${pokemon.name} (height ${pokemon.height}) </p>`);
+    }
+);
