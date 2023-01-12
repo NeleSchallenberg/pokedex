@@ -35,7 +35,15 @@ pokemonRepository.add(
 
 // Updated forEach loop to retireve pokemonList array
 pokemonRepository.getAll().forEach(function(pokemon) {
-    document.write (`<p> ${pokemon.name} (height ${pokemon.height}) </p>`);
+    // document.write (`<p> ${pokemon.name} (height ${pokemon.height}) </p>`);
+
+    let pokemonList = document.querySelector('ul');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+        button.innerText = 'pokemon.name';
+        button.classList.add();
+    li.appendChild(button);
+    pokemonList.appendChild(li);
     }
 );
 
