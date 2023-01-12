@@ -1,6 +1,7 @@
 body {
-    font-family:'Courier New', Courier, monospace;
-    margin: 30px;
-    border: 1px solid grey;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 30px auto;
+    max-width: 414px;
+    text-align: center;
     padding: 15px;
 }
