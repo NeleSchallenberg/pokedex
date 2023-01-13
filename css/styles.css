@@ -1,12 +1,35 @@
 body {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin: 30px auto;
+    margin: 0 auto;
     max-width: 414px;
+    min-width: 360px;
     text-align: center;
+    padding: 20px;
+    background-color: azure;
+}
+
+h1 {
+    margin: 0 auto;
+    padding: 15px; 
+}
+
+ul {
+    list-style: none;
+    margin: 0 auto;
     padding: 15px;
 }
 
-button {
-    padding: 15px;
-    background-color: aquamarine;
+li {
+    margin: 0 auto;
 }
+
+button, .button {
+    border: solid lightgrey 1px;
+    text-align: center;
+    width: 330px;
+    margin: 10px auto;
+    padding: 15px;
+}
+
+
+
