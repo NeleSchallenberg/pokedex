@@ -17,7 +17,11 @@ let pokemonRepository = (function () {
 
 // Function to add item to pokemon list under certain conditions
     function add(pokemon) {
-        if (pokemon === 'object') {
+        if (typeof pokemon === 'object' &&
+        'name' in pokemon &&
+        'height' in pokemon &&
+        'types' in pokemon
+        ) {
             pokemonList.push(pokemon);
         } else {
             console.log('Not a pokemon!');
@@ -28,7 +32,7 @@ let pokemonRepository = (function () {
         let pokemonList = document.querySelector('.pokemon-list');
         let listItem = document.createElement('li');
         let button = document.createElement('button');
-        button.innerText = (pokemon.name);
+        button.innerText = pokemon.name;
         button.classList.add('.button-styling');
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
@@ -46,7 +50,9 @@ console.log(pokemonRepository.getAll());
 pokemonRepository.add( {name: 'Pidgeot', height: 4.11, types: ['normal', 'water']} );
 console.log(pokemonRepository.getAll());
 
-
+pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
+});
 
 
 
@@ -56,13 +62,8 @@ console.log(pokemonRepository.getAll());
 // OLD CODE
 
 
-// pokemonRepository.getAll().forEach (function(pokemon) 
 
-// pokemonRepository.getAll().forEach(function(pokemon) {
-//     addListItem(pokemon {
-//         name: 'Pidgeot', height: 4.11, types: ['normal', 'water']})
 
-// });
 
 
 
