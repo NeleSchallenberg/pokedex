@@ -1,5 +1,5 @@
 
-// List of objects that describe different pokemon and their details, wrapped in an IIFE.
+// List of objects that describe different pokemon and their details, wrapped in an IIFE
 let pokemonRepository = (function () {
     let pokemonList = [
         {name: 'Farfetch\'d', height: 2.7, types: ['normal', 'flying']},
@@ -10,6 +10,12 @@ let pokemonRepository = (function () {
         {name: 'Gyarados', height: 21, types: ['water', 'flying']}
     ]
 
+// Function to return all items in pokemon list array
+    function getAll() {
+        return pokemonList;
+    }
+
+// Function to add item to pokemon list under certain conditions
     function add(pokemon) {
         if (pokemon === 'object') {
             pokemonList.push(pokemon);
@@ -17,38 +23,62 @@ let pokemonRepository = (function () {
             console.log('Not a pokemon!');
         }
     }
-
-    function getAll() {
-        return pokemonList;
+    
+    function addListItem(pokemon) {
+        let pokemonList = document.querySelector('.pokemon-list');
+        let listItem = document.createElement('li');
+        let button = document.createElement('button');
+        button.innerText = (pokemon.name);
+        button.classList.add('.button-styling');
+        listItem.appendChild(button);
+        pokemonList.appendChild(listItem);
     }
 
     return {
-        add: add,
-        getAll: getAll
+        getAll,
+        add,
+        addListItem,
     }
-    
 }) ();
 
-pokemonRepository.add(
-    {name: 'Pidgeot', height: 4.11, types: ['normal', 'water']}
-)
 
 
-// Updated forEach loop to retrieve pokemonList array
 
-pokemonRepository.getAll().forEach(function(pokemon) {
 
-    let pokemonList = document.querySelector('.pokemon-list');
-    let listItem = document.createElement('li');
 
-    let button = document.createElement('button');
-        button.innerText = (pokemon.name);
-        button.classList.add('.button');
 
-    listItem.appendChild(button);
-    pokemonList.appendChild(listItem);
-    }
-);
+
+
+
+// OLD CODE
+
+
+// pokemonRepository.getAll().forEach (function(pokemon) 
+
+// pokemonRepository.getAll().forEach(function(pokemon) {
+//     addListItem(pokemon {
+//         name: 'Pidgeot', height: 4.11, types: ['normal', 'water']})
+
+// });
+
+
+
+
+
+// // Updated forEach loop to retrieve pokemonList array
+// pokemonRepository.getAll().forEach(function(pokemon) {
+
+//     let pokemonList = document.querySelector('.pokemon-list');
+//     let listItem = document.createElement('li');
+
+//     let button = document.createElement('button');
+//         button.innerText = (pokemon.name);
+//         button.classList.add('.button');
+
+//     listItem.appendChild(button);
+//     pokemonList.appendChild(listItem);
+//     }
+// );
 
 
 
