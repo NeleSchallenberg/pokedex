@@ -41,7 +41,10 @@ let pokemonRepository = (function () {
     }
 }) ();
 
+console.log(pokemonRepository.getAll());
 
+pokemonRepository.add( {name: 'Pidgeot', height: 4.11, types: ['normal', 'water']} );
+console.log(pokemonRepository.getAll());
 
 
 
