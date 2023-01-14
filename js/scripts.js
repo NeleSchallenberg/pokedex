@@ -10,12 +10,12 @@ let pokemonRepository = (function () {
         {name: 'Gyarados', height: 21, types: ['water', 'flying']}
     ]
 
-// Function to return all items in pokemon list array
+    // Function to return all items in pokemon list array
     function getAll() {
         return pokemonList;
     }
 
-// Function to add item to pokemon list under certain conditions
+    // Function to add item to pokemon list under certain conditions
     function add(pokemon) {
         if (typeof pokemon === 'object' &&
         'name' in pokemon &&
@@ -27,7 +27,12 @@ let pokemonRepository = (function () {
             console.log('Not a pokemon!');
         }
     }
-    
+
+    // Function to log pokemon details in the console
+    function showDetails(pokemon) {
+        console.log(pokemon);
+    }
+
     function addListItem(pokemon) {
         let pokemonList = document.querySelector('.pokemon-list');
         let listItem = document.createElement('li');
@@ -36,6 +41,8 @@ let pokemonRepository = (function () {
         button.classList.add('.button-styling');
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
+        button.addEventListener('click', function(event) {
+            showDetails(pokemon)});
     }
 
     return {
@@ -45,10 +52,8 @@ let pokemonRepository = (function () {
     }
 }) ();
 
-console.log(pokemonRepository.getAll());
-
 pokemonRepository.add( {name: 'Pidgeot', height: 4.11, types: ['normal', 'water']} );
-console.log(pokemonRepository.getAll());
+
 
 pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
@@ -60,13 +65,6 @@ pokemonRepository.getAll().forEach(function (pokemon) {
 
 
 // OLD CODE
-
-
-
-
-
-
-
 
 
 // // Updated forEach loop to retrieve pokemonList array
