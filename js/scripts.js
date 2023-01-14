@@ -33,6 +33,7 @@ let pokemonRepository = (function () {
         console.log(pokemon);
     }
 
+    // Function to display list of pokemons with buttons
     function addListItem(pokemon) {
         let pokemonList = document.querySelector('.pokemon-list');
         let listItem = document.createElement('li');
@@ -41,6 +42,7 @@ let pokemonRepository = (function () {
         button.classList.add('.button-styling');
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
+        // Added event listener to button element
         button.addEventListener('click', function(event) {
             showDetails(pokemon)});
     }
@@ -52,9 +54,10 @@ let pokemonRepository = (function () {
     }
 }) ();
 
+// Added pokemon to the array
 pokemonRepository.add( {name: 'Pidgeot', height: 4.11, types: ['normal', 'water']} );
 
-
+// Function to return all pokemon from the array
 pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
 });
