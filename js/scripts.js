@@ -1,7 +1,8 @@
 
 // List of objects that describe different pokemon and their details, wrapped in an IIFE
 let pokemonRepository = (function () {
-    let pokemonList = []
+    let pokemonList = [];
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
     // Function to return all items in pokemon list array
     function getAll() {
