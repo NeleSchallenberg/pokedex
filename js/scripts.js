@@ -47,9 +47,6 @@ let pokemonRepository = (function () {
     }
 }) ();
 
-// Added pokemon to the array
-pokemonRepository.add( {name: 'Pidgeot', height: 4.11, types: ['normal', 'water']} );
-
 // Function to return all pokemon from the array
 pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
