@@ -82,9 +82,11 @@ let pokemonRepository = (function () {
     }
 }) ();
 
-// Function to return all pokemon from the array
-pokemonRepository.getAll().forEach(function (pokemon) {
-    pokemonRepository.addListItem(pokemon);
+// Called loadList function to render all pokemon from the server
+pokemonRepository.loadList().then(function(){
+    pokemonRepository.getAll().forEach(function (pokemon) {
+        pokemonRepository.addListItem(pokemon);
+    });
 });
 
 
