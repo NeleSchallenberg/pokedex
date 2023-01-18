@@ -1,15 +1,15 @@
 
-// List of objects that describe different pokemon and their details, wrapped in an IIFE
+// IIFE with pokemon repository and link to API
 let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-    // Function to return all items in pokemon list array
+    // getAll function to return all items in pokemon list array
     function getAll() {
         return pokemonList;
     }
 
-    // Function to add item to pokemon list under certain conditions
+    // add function to add item to pokemon list under certain conditions
     function add(pokemon) {
         if (typeof pokemon === 'object' &&
         'name' in pokemon
@@ -45,7 +45,6 @@ let pokemonRepository = (function () {
                     detailsUrl: item.url
                 };
                 add(pokemon);
-                console.log(pokemon);
             });
         }).catch(function (e) {
           console.error(e);
