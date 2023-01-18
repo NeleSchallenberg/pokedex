@@ -22,11 +22,6 @@ let pokemonRepository = (function () {
         }
     }
 
-    // Function to log pokemon details in the console
-    function showDetails(pokemon) {
-        console.log(pokemon);
-    }
-
     // addListItem function to display list of pokemons with buttons
     function addListItem(pokemon) {
         let pokemonList = document.querySelector('.pokemon-list');
@@ -70,6 +65,13 @@ let pokemonRepository = (function () {
             item.types = details.types;
         }).catch(function (e) {
             console.error(e);
+        });
+    }
+
+    // showDetails function to log pokemon details in the console
+    function showDetails(item) {
+        pokemonRepository.loadDetails(item).then(function(){
+            console.log(item);
         });
     }
 
