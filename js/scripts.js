@@ -12,9 +12,7 @@ let pokemonRepository = (function () {
     // Function to add item to pokemon list under certain conditions
     function add(pokemon) {
         if (typeof pokemon === 'object' &&
-        'name' in pokemon &&
-        'height' in pokemon &&
-        'types' in pokemon
+        'name' in pokemon
         ) {
             pokemonList.push(pokemon);
         } else {
@@ -81,6 +79,7 @@ let pokemonRepository = (function () {
         addListItem,
         loadList,
         loadDetails,
+        showDetails,
     }
 }) ();
 
