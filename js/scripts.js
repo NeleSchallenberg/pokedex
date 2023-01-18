@@ -44,26 +44,41 @@ let pokemonRepository = (function () {
     // Function to fetch complete list of pokemon from the API
     function loadList() {
         return fetch(apiUrl).then(function (response) {
-          return response.json();
+            return response.json();
         }).then(function (json) {
-          json.results.forEach(function (item) {
-            let pokemon = {
-              name: item.name,
-              detailsUrl: item.url
-            };
-            add(pokemon);
-            console.log(pokemon);
-          });
+            json.results.forEach(function (item) {
+                let pokemon = {
+                    name: item.name,
+                    detailsUrl: item.url
+                };
+                add(pokemon);
+                console.log(pokemon);
+            });
         }).catch(function (e) {
           console.error(e);
         })
-      }
+    }
+
+    // Function to get pokemon details
+    function loadDetails(item) {
+        let url = item.detailsUrl;
+        return fetch(url).then(function (response) {
+            return response.json();
+        }).then(function (details) {
+            item.imageUrl = details.sprites.front_default;
+            item.height = details.height;
+            item.types = details.types;
+        }).catch(function (e) {
+            console.error(e);
+        });
+    }
 
     return {
         getAll,
         add,
         addListItem,
         loadList,
+        loadDetails,
     }
 }) ();
 
