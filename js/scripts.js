@@ -26,12 +26,12 @@ let pokemonRepository = (function () {
         let listItem = document.createElement('li');
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.classList.add('.button-styling');
+        button.classList.add('list-button');
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
         // Added event listener to button element
         button.addEventListener('click', function(event) {
-            showDetails(pokemon)});
+            showDetails(pokemon);});
     }
 
     // loadList function to fetch complete list of pokemon from the API
@@ -65,12 +65,52 @@ let pokemonRepository = (function () {
         });
     }
 
-    // showDetails function to log pokemon details in the console
+    // Function displaying a modal with pokemon details on the screen
     function showDetails(item) {
+        pokemonRepository.loadDetails(item).then(function showModal(name, height, imageUrl) {
+            let modalContainer = document.querySelector('#modal-container');
+                modalContainer.innerHTML = '';
+                
+                // Creating and appending modal
+                let modal = document.createElement ('div');
+                modal.classList.add('modal');
+                modalContainer.appendChild(modal);
+
+                // Creating and appending modal content
+                let closeButton = document.createElement ('button')
+                closeButton.classList.add('close-button');
+                closeButton.innerText = 'X'
+                modal.appendChild(closeButton);
+
+                let pokemonName = document.createElement ('h2');
+                pokemonName.classList.add('pokemon-name');
+                pokemonName.innerText = item.name;
+                modal.appendChild(pokemonName);
+
+                let pokemonHeight = document.createElement ('p');
+                pokemonHeight.classList.add('pokemon-height');
+                pokemonHeight.innerText = 'Height: ' + item.height;
+                modal.appendChild(pokemonHeight);
+
+                let pokemonImage = document.createElement ('img');
+                pokemonImage.classList.add('pokemon-image');
+                pokemonImage.innerText = item.imageUrl;
+                modal.appendChild(pokemonImage);
+
+
+
+                modalContainer.classList.add('is-visible');
+        });
+
+        // Function logging pokemon details in the console
         pokemonRepository.loadDetails(item).then(function(){
             console.log(item);
         });
+
+            
+
     }
+
 
     return {
         getAll,
@@ -80,6 +120,7 @@ let pokemonRepository = (function () {
         loadDetails,
         showDetails,
     }
+
 }) ();
 
 // Called loadList function to render all pokemon from the server
