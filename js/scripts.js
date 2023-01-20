@@ -113,6 +113,13 @@ let pokemonRepository = (function () {
                     hideModal();
                 }
             });
+
+            // Closing modal with escape key on keyboard
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+                    hideModal();
+                }
+            })
         });
 
         // Function logging pokemon details in the console
