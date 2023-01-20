@@ -81,6 +81,8 @@ let pokemonRepository = (function () {
                 closeButton.classList.add('close-button');
                 closeButton.innerText = 'X'
                 modal.appendChild(closeButton);
+                // Closing modal with click on close button
+                closeButton.addEventListener('click', hideModal);
 
                 let pokemonName = document.createElement ('h2');
                 pokemonName.classList.add('pokemon-name');
@@ -97,17 +99,19 @@ let pokemonRepository = (function () {
                 pokemonImage.innerText = item.imageUrl;
                 modal.appendChild(pokemonImage);
 
-
-
                 modalContainer.classList.add('is-visible');
+
+                //Function to hide modal
+                function hideModal() {
+                modalContainer.classList.remove('is-visible');
+                }; 
         });
 
         // Function logging pokemon details in the console
         pokemonRepository.loadDetails(item).then(function(){
             console.log(item);
         });
-
-            
+   
 
     }
 
