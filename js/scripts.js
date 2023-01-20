@@ -4,12 +4,12 @@ let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-    // getAll function to return all items in pokemon list array
+    // Function to return all items in pokemon list array
     function getAll() {
         return pokemonList;
     }
 
-    // add function to add item to pokemon list under certain conditions
+    // Function to add item to pokemon list under certain conditions
     function add(pokemon) {
         if (typeof pokemon === 'object' &&
         'name' in pokemon
@@ -20,7 +20,7 @@ let pokemonRepository = (function () {
         }
     }
 
-    // addListItem function to display list of pokemons with buttons
+    // Function to display list of pokemons with buttons
     function addListItem(pokemon) {
         let pokemonList = document.querySelector('.pokemon-list');
         let listItem = document.createElement('li');
@@ -34,7 +34,7 @@ let pokemonRepository = (function () {
             showDetails(pokemon);});
     }
 
-    // loadList function to fetch complete list of pokemon from the API
+    // Function to fetch complete list of pokemon from the API
     function loadList() {
         return fetch(apiUrl).then(function (response) {
             return response.json();
@@ -46,12 +46,12 @@ let pokemonRepository = (function () {
                 };
                 add(pokemon);
             });
-        }).catch(function (e) {
+        }).catch(function(e) {
           console.error(e);
         })
     }
 
-    // loadDetails function to get pokemon details
+    // Function to load pokemon details
     function loadDetails(item) {
         let url = item.detailsUrl;
         return fetch(url).then(function (response) {
@@ -65,49 +65,49 @@ let pokemonRepository = (function () {
         });
     }
 
-    // Function displaying a modal with pokemon details on the screen
+    // Function for displaying a modal with pokemon details on the screen
     function showDetails(item) {
         pokemonRepository.loadDetails(item).then(function showModal(name, height, image) {
             let modalContainer = document.querySelector('#modal-container');
-                modalContainer.innerHTML = '';
-                
-                // Creating and appending modal
-                let modal = document.createElement ('div');
-                modal.classList.add('modal');
-                modalContainer.appendChild(modal);
+            modalContainer.innerHTML = '';
+            
+            // Creating and appending modal
+            let modal = document.createElement ('div');
+            modal.classList.add('modal');
+            modalContainer.appendChild(modal);
 
-                // Creating and appending modal content
-                let closeButton = document.createElement ('button')
-                closeButton.classList.add('close-button');
-                closeButton.innerText = 'X'
-                modal.appendChild(closeButton);
-                // Closing modal with click on close button
-                closeButton.addEventListener('click', hideModal);
-                
-                let pokemonName = document.createElement ('h2');
-                pokemonName.classList.add('pokemon-name');
-                pokemonName.innerText = item.name;
-                modal.appendChild(pokemonName);
+            // Creating and appending modal content
+            let closeButton = document.createElement ('button')
+            closeButton.classList.add('close-button');
+            closeButton.innerText = 'X'
+            modal.appendChild(closeButton);
+            // Closing modal with click on close button
+            closeButton.addEventListener('click', hideModal);
+            
+            let pokemonName = document.createElement ('h2');
+            pokemonName.classList.add('pokemon-name');
+            pokemonName.innerText = item.name;
+            modal.appendChild(pokemonName);
 
-                let pokemonHeight = document.createElement ('p');
-                pokemonHeight.classList.add('pokemon-height');
-                pokemonHeight.innerText = 'Height: ' + item.height;
-                modal.appendChild(pokemonHeight);
+            let pokemonHeight = document.createElement ('p');
+            pokemonHeight.classList.add('pokemon-height');
+            pokemonHeight.innerText = 'Height: ' + item.height;
+            modal.appendChild(pokemonHeight);
 
-                let pokemonImage = document.createElement ('img');
-                pokemonImage.classList.add('pokemon-image');
-                pokemonImage.src = item.imageUrl;
-                modal.appendChild(pokemonImage);
+            let pokemonImage = document.createElement ('img');
+            pokemonImage.classList.add('pokemon-image');
+            pokemonImage.src = item.imageUrl;
+            modal.appendChild(pokemonImage);
 
-                modalContainer.classList.add('is-visible');
+            modalContainer.classList.add('is-visible');
 
-                //Function to hide modal
-                function hideModal() {
+            // Function to hide modal
+            function hideModal() {
                 modalContainer.classList.remove('is-visible');
-                }; 
+            }; 
                 
-                // Closing modal by clicking outside of modal
-                modalContainer.addEventListener('click', (e) => {
+            // Closing modal by clicking outside of modal
+            modalContainer.addEventListener('click', (e) => {
                 let target = e.target;
                 if (target === modalContainer) {
                     hideModal();
@@ -126,10 +126,7 @@ let pokemonRepository = (function () {
         pokemonRepository.loadDetails(item).then(function(){
             console.log(item);
         });
-   
-
     }
-
 
     return {
         getAll,
@@ -139,7 +136,8 @@ let pokemonRepository = (function () {
         loadDetails,
         showDetails,
     }
-
+    
+// End of IIFE
 }) ();
 
 // Called loadList function to render all pokemon from the server
