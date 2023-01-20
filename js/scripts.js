@@ -105,6 +105,14 @@ let pokemonRepository = (function () {
                 function hideModal() {
                 modalContainer.classList.remove('is-visible');
                 }; 
+                
+                // Closing modal by clicking outside of modal
+                modalContainer.addEventListener('click', (e) => {
+                let target = e.target;
+                if (target === modalContainer) {
+                    hideModal();
+                }
+            });
         });
 
         // Function logging pokemon details in the console
