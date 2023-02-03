@@ -29,6 +29,8 @@ let pokemonRepository = (function () {
         let button = document.createElement('button');
         button.innerText = pokemon.name;
         button.classList.add('list-button', 'btn', 'btn-lg', 'btn-outline-secondary', 'btn-block', 'shadow-sm');
+        button.setAttribute('data-toggle', 'modal');
+        button.setAttribute('data-target', '#pokemon-card')
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
         // Added event listener to button element
@@ -70,7 +72,7 @@ let pokemonRepository = (function () {
     // Function for displaying a modal with pokemon details on the screen
     function showDetails(item) {
         pokemonRepository.loadDetails(item).then(function showModal(name, height, image) {
-            let modalContainer = document.querySelector('#modal-container');
+            let modalContainer = document.querySelector('#pokemon-card');
             modalContainer.innerHTML = '';
             
             // Creating and appending modal

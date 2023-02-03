@@ -15,7 +15,7 @@
   </head>
   
   <body>
-    <!-- Adding fixed navigation bar on top-->
+    <!-- Adding fixed navigation bar on top -->
     <nav class="navbar navbar-light bg-secondary fixed-top justify-content-between">
       <a class="navbar-brand" href="#">POKEDEX</a>
       <form class="form-inline d-none d-sm-block">
@@ -23,10 +23,28 @@
         <button type="submit" class="btn btn-dark mt-2 mt-sm-0">Search</button>
       </form>
     </nav>
+
     <main class="bg-light">
-      <!-- Added Bootstrap utility class to pokemon list -->
+      <!-- Adding Bootstrap utility class to pokemon list -->
       <ul class="pokemon-list list-group"></ul>
-      <div id="modal-container"></div>
+
+      <!-- Adding Bootstrap modal -->
+      <div id="pokemon-card" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <!-- Modal header -->
+            <div class="modal-header">
+              <h5 class="modal-title"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- Modal content -->
+            <div class="modal-body"></div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <!-- jQuery -->
