@@ -24,9 +24,11 @@ let pokemonRepository = (function () {
     function addListItem(pokemon) {
         let pokemonList = document.querySelector('.pokemon-list');
         let listItem = document.createElement('li');
+        // Added Bootstrap utility class to list element
+        listItem.classList.add('group-list-item', 'col', 'col-md-8', 'col-xl-6')
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.classList.add('list-button');
+        button.classList.add('list-button', 'btn', 'btn-lg', 'btn-outline-secondary', 'btn-block', 'shadow-sm');
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
         // Added event listener to button element
