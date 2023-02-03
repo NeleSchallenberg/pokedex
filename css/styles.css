@@ -1,52 +1,29 @@
-body {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin: 0 auto;
-    max-width: 414px;
-    min-width: 360px;
-    text-align: center;
-    padding: 20px;
-    background-color: azure;
+h1 {
+    font-family: 'Bebas Neue', cursive;
+    margin-bottom: 0;
 }
 
-h1 {
-    margin: 0 auto;
-    padding: 12px; 
-    font-family: 'Bebas Neue', cursive;
-    font-size: 45px;
+main {
+    margin-top: 80px
 }
 
 ul {
     list-style: none;
-    margin: 0 auto;
-    padding: 10px;
 }
 
 li {
     margin: 0 auto;
 }
 
+
+
 .list-button {
-    border: solid lightgrey 1px;
     background-color: lightcyan;
     font-family: 'Bebas Neue', cursive;
     font-size: 24px;
-    text-align: center;
-    width: 330px;
-    margin: 10px auto;
-    padding: 12px;
+    margin-top: 12px;
 }
 
-.list-button:hover {
-    border: solid grey 2px;
-}
-
-.list-button:active {
-    border: solid grey 2px
-}
-
-.list-button:focus {
-    border: solid grey 2px;
-}
 
 
 #modal-container {
