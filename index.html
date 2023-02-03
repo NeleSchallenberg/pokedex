@@ -15,8 +15,13 @@
   </head>
   
   <body>
-    <nav class="navbar navbar-expand-sm fixed-top">
-      <h1>POKEDEX</h1>
+    <!-- Adding fixed navigation bar on top-->
+    <nav class="navbar navbar-light bg-secondary fixed-top justify-content-between">
+      <a class="navbar-brand" href="#">POKEDEX</a>
+      <form class="form-inline d-none d-sm-block">
+        <input type="search" class="form-control mr-sm-2" aria-label="Search">
+        <button type="submit" class="btn btn-dark mt-2 mt-sm-0">Search</button>
+      </form>
     </nav>
     <main class="bg-light">
       <!-- Added Bootstrap utility class to pokemon list -->
