@@ -1,10 +1,10 @@
-h1 {
+.navbar-brand {
     font-family: 'Bebas Neue', cursive;
-    margin-bottom: 0;
+    font-size: 36px;
 }
 
 main {
-    margin-top: 80px
+    padding-top: 90px;
 }
 
 ul {
