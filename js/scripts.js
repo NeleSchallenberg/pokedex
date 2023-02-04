@@ -69,68 +69,31 @@ let pokemonRepository = (function () {
         });
     }
 
-    // Function for displaying a modal with pokemon details on the screen
-    function showDetails(item) {
-        pokemonRepository.loadDetails(item).then(function showModal(name, height, image) {
-            let modalContainer = document.querySelector('#pokemon-card');
-            modalContainer.innerHTML = '';
-            
-            // Creating and appending modal
-            let modal = document.createElement ('div');
-            modal.classList.add('modal');
-            modalContainer.appendChild(modal);
-
-            // Creating and appending modal content
-            let closeButton = document.createElement ('button')
-            closeButton.classList.add('close-button');
-            closeButton.innerText = 'X'
-            modal.appendChild(closeButton);
-            // Closing modal with click on close button
-            closeButton.addEventListener('click', hideModal);
-            
-            let pokemonName = document.createElement ('h2');
-            pokemonName.classList.add('pokemon-name');
-            pokemonName.innerText = item.name;
-            modal.appendChild(pokemonName);
-
-            let pokemonHeight = document.createElement ('p');
-            pokemonHeight.classList.add('pokemon-height');
-            pokemonHeight.innerText = 'Height: ' + item.height;
-            modal.appendChild(pokemonHeight);
-
-            let pokemonImage = document.createElement ('img');
-            pokemonImage.classList.add('pokemon-image');
-            pokemonImage.src = item.imageUrl;
-            modal.appendChild(pokemonImage);
-
-            modalContainer.classList.add('is-visible');
-
-            // Function to hide modal
-            function hideModal() {
-                modalContainer.classList.remove('is-visible');
-            }; 
-                
-            // Closing modal by clicking outside of modal
-            modalContainer.addEventListener('click', (e) => {
-                let target = e.target;
-                if (target === modalContainer) {
-                    hideModal();
-                }
-            });
-
-            // Closing modal with escape key on keyboard
-            window.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-                    hideModal();
-                }
-            })
-        });
-
-        // Function logging pokemon details in the console
-        pokemonRepository.loadDetails(item).then(function(){
-            console.log(item);
+    function showDetails(pokemon) {
+        pokemonRepository.loadDetails(pokemon).then(function () {
+            showModal(pokemon)
         });
     }
+
+    // Function for displaying a modal with pokemon details on the screen
+    function showModal(pokemon) {
+        let modalTitle = $('.modal-title');
+        let modalBody = $('.modal-body');
+
+        // Emptying the modal content when a new card is opened
+        modalTitle.empty();
+        modalBody.empty();
+
+        modalTitle.append(pokemon.name)
+
+        let pokemonHeight = document.createElement('p');
+        pokemonHeight.classList.add('pokemon-height');
+        pokemonHeight.innerText = 'Height: ' + pokemon.height;
+
+        modalBody.append(`<p class="pokemon-height>Height: ${pokemon.height}</p>`);
+        modalBody.append(`<img class="pokemon-image" src="${pokemon.imageURL}">`)
+    }    
+    
 
     return {
         getAll,
