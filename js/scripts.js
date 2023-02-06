@@ -4,10 +4,14 @@ let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
+    
+
     // Function to return all items in pokemon list array
     function getAll() {
         return pokemonList;
     }
+
+    
 
     // Function to add item to pokemon list under certain conditions
     function add(pokemon) {
@@ -19,6 +23,8 @@ let pokemonRepository = (function () {
             console.log('Not a pokemon!');
         }
     }
+
+    
 
     // Function to display list of pokemons with buttons
     function addListItem(pokemon) {
@@ -38,6 +44,7 @@ let pokemonRepository = (function () {
             showDetails(pokemon);});
     }
 
+    
     // Function to fetch complete list of pokemon from the API
     function loadList() {
         return fetch(apiUrl).then(function (response) {
@@ -55,6 +62,8 @@ let pokemonRepository = (function () {
         })
     }
 
+    
+
     // Function to load pokemon details
     function loadDetails(item) {
         let url = item.detailsUrl;
@@ -69,6 +78,8 @@ let pokemonRepository = (function () {
         });
     }
 
+    
+
     function showDetails(pokemon) {
         pokemonRepository.loadDetails(pokemon).then(function () {
             showModal(pokemon)
@@ -77,23 +88,22 @@ let pokemonRepository = (function () {
 
     // Function for displaying a modal with pokemon details on the screen
     function showModal(pokemon) {
-        let modalTitle = $('.modal-title');
-        let modalBody = $('.modal-body');
+        let modalTitle = $(".modal-title");
+        let modalBody = $(".modal-body");
 
         // Emptying the modal content when a new card is opened
         modalTitle.empty();
         modalBody.empty();
 
-        modalTitle.append(pokemon.name)
+        modalTitle.append(pokemon.name);
 
         let pokemonHeight = document.createElement('p');
         pokemonHeight.classList.add('pokemon-height');
         pokemonHeight.innerText = 'Height: ' + pokemon.height;
 
-        modalBody.append(`<p class="pokemon-height>Height: ${pokemon.height}</p>`);
+        modalBody.append(`<p class="pokemon-height">Height: ${pokemon.height}</p>`);
         modalBody.append(`<img class="pokemon-image" src="${pokemon.imageURL}">`)
     }    
-    
 
     return {
         getAll,
