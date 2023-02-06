@@ -31,3 +31,7 @@ li {
     font-family: 'Bebas Neue', cursive;
     font-size: 20px;
 }   
+
+p {
+    margin-bottom: 6px;
+}
