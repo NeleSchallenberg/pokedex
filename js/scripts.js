@@ -4,14 +4,10 @@ let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-    
-
     // Function to return all items in pokemon list array
     function getAll() {
         return pokemonList;
     }
-
-    
 
     // Function to add item to pokemon list under certain conditions
     function add(pokemon) {
@@ -23,8 +19,6 @@ let pokemonRepository = (function () {
             console.log('Not a pokemon!');
         }
     }
-
-    
 
     // Function to display list of pokemons with buttons
     function addListItem(pokemon) {
@@ -44,7 +38,6 @@ let pokemonRepository = (function () {
             showDetails(pokemon);});
     }
 
-    
     // Function to fetch complete list of pokemon from the API
     function loadList() {
         return fetch(apiUrl).then(function (response) {
@@ -62,8 +55,6 @@ let pokemonRepository = (function () {
         })
     }
 
-    
-
     // Function to load pokemon details
     function loadDetails(item) {
         let url = item.detailsUrl;
@@ -78,9 +69,8 @@ let pokemonRepository = (function () {
             console.error(e);
         });
     }
-
     
-
+    // Function to show details ins the modal
     function showDetails(pokemon) {
         pokemonRepository.loadDetails(pokemon).then(function () {
             showModal(pokemon)
