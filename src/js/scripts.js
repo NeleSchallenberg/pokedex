@@ -31,7 +31,9 @@ let pokemonRepository = (function () {
         "btn-lg",
         "btn-outline-secondary",
         "btn-block",
-        "shadow-sm"
+        "shadow-sm",
+        "text-uppercase",
+
       );
       button.setAttribute("data-toggle", "modal");
       button.setAttribute("data-target", "#pokemon-card");
