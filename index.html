@@ -18,10 +18,10 @@
     <nav class="navbar navbar-light bg-secondary fixed-top sm-justify-content-between">
       <div class="header">
         <a class="navbar-brand" href="#">POKÉDEX</a>
-        <small class="navbar-text">Gotta catch 'em all.</small>
+        <small class="navbar-text ml-0 ml-sm-1">Gotta catch 'em all.</small>
       </div>
-      <form class="form-inline">
-          <input type="search" class="form-control form-control-sm mr-1 mt-sm-0" aria-label="Search">
+      <form class="form-inline d-none d-sm-block">
+          <input type="search" id="search-bar" class="form-control form-control-sm mr-1 mt-sm-0" aria-label="Search"/>
           <button type="submit" class="btn btn-sm btn-dark mt-sm-0 mt-2">Search</button>
       </form>
     </nav>
@@ -35,7 +35,7 @@
       <div id="pokemon-card" class="modal fade" role="dialog">
         <div class="modal-dialog modal-dialog-centered">
           <!-- Modal content -->
-          <div class="modal-content">
+          <div class="modal-content bg-light">
             <!-- Modal header -->
             <div class="modal-header">
               <h5 class="modal-title text-uppercase"></h5>

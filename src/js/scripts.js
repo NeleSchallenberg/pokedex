@@ -1,7 +1,7 @@
 // IIFE with pokemon repository and link to API
 let pokemonRepository = (function () {
     let pokemonList = [];
-    let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=500';
   
     // Function to return all items in pokemon list array
     function getAll() {
@@ -10,37 +10,37 @@ let pokemonRepository = (function () {
   
     // Function to add item to pokemon list under certain conditions
     function add(pokemon) {
-      if (typeof pokemon === "object" && "name" in pokemon) {
+      if (typeof pokemon === 'object' && 'name' in pokemon) {
         pokemonList.push(pokemon);
       } else {
-        console.log("Not a pokemon!");
+        console.log('Not a pokemon!');
       }
     }
   
     // Function to display list of pokemons with buttons
     function addListItem(pokemon) {
-      let pokemonList = document.querySelector(".pokemon-list");
-      let listItem = document.createElement("li");
+      let pokemonList = document.querySelector('.pokemon-list');
+      let listItem = document.createElement('li');
       // Added Bootstrap utility class to list element
-      listItem.classList.add("group-list-item", "col", "col-md-8", "col-xl-6");
-      let button = document.createElement("button");
+      listItem.classList.add('group-list-item', 'col', 'col-md-8', 'col-xl-6');
+      let button = document.createElement('button');
       button.innerText = pokemon.name;
       button.classList.add(
-        "list-button",
-        "btn",
-        "btn-lg",
-        "btn-outline-secondary",
-        "btn-block",
-        "shadow-sm",
-        "text-uppercase",
+        'list-button',
+        'btn',
+        'btn-lg',
+        'btn-outline-secondary',
+        'btn-block',
+        'shadow-sm',
+        'text-uppercase',
 
       );
-      button.setAttribute("data-toggle", "modal");
-      button.setAttribute("data-target", "#pokemon-card");
+      button.setAttribute('data-toggle', 'modal');
+      button.setAttribute('data-target', '#pokemon-card');
       listItem.appendChild(button);
       pokemonList.appendChild(listItem);
       // Added event listener to button element
-      button.addEventListener("click", function (event) {
+      button.addEventListener('click', function (event) {
         showDetails(pokemon);
       });
     }
@@ -73,16 +73,27 @@ let pokemonRepository = (function () {
           return response.json();
         })
         .then(function (details) {
-          item.imageUrl = details.sprites.front_default;
+          item.frontImageUrl = details.sprites.front_default;
+          item.backImageUrl = details.sprites.back_default;
           item.height = details.height;
           item.weight = details.weight;
-          item.types = details.types;
+          let types = [];
+          details.types.forEach(function (item) {
+            types.push(item.type.name);
+          });
+          item.types = types.join(' / ');
+          let abilities = [];
+          details.abilities.forEach (function (item) {
+            abilities.push(item.ability.name);
+          })
+          item.abilities = abilities.join(' / ');
+
         })
         .catch(function (e) {
           console.error(e);
         });
     }
-  
+
     // Function to show details ins the modal
     function showDetails(pokemon) {
       pokemonRepository.loadDetails(pokemon).then(function () {
@@ -92,20 +103,22 @@ let pokemonRepository = (function () {
   
     // Function for displaying a modal with pokemon details on the screen
     function showModal(pokemon) {
-      let modalTitle = $(".modal-title");
-      let modalBody = $(".modal-body");
+      let modalTitle = $('.modal-title');
+      let modalBody = $('.modal-body');
   
       // Emptying the modal content when a new card is opened
       modalTitle.empty();
       modalBody.empty();
   
       modalTitle.append(pokemon.name);
-  
-      modalBody.append(`<p class="pokemon-height">Height: ${pokemon.height}</p>`);
-      modalBody.append(`<p class="pokemon-weight">Weight: ${pokemon.weight}</p>`);
-      modalBody.append(`<img class="pokemon-image" width=50% src="${pokemon.imageUrl}">`);
+      modalBody.append(`<img class='pokemon-image-front border mb-3' width=50% src='${pokemon.frontImageUrl}'>`);
+      modalBody.append(`<img class='pokemon-image-back border mb-3' width=50% src='${pokemon.backImageUrl}'>`);
+      modalBody.append(`<p class='pokemon-height bg-secondary'>HEIGHT - ${pokemon.height}</p>`);
+      modalBody.append(`<p class='pokemon-weight bg-info'>WEIGHT - ${pokemon.weight}</p>`);
+      modalBody.append(`<p class='pokemon-types text-uppercase bg-secondary'>TYPE - ${pokemon.types}</p>`);
+      modalBody.append(`<p class='pokemon-abilities text-uppercase bg-info'>ABILITIES - ${pokemon.abilities}</p>`)
     }
-  
+
     return {
       getAll,
       add,
