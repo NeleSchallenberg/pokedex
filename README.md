@@ -1,20 +1,39 @@
-## JavaScript App ##
+## JavaScript App
 
-A simple small **Pokédex** App to display a list of Pokémon and data points in detail.
+This project is a simple small **Pokédex** App to display a list of Pokémon and data points in detail, that loads data from an external API (limited to 500).
 
-- Built with ***HTML***, ***CSS***, and ***JavaScript***.
-- Loads data from an external API.
+---
+https://github.com/NeleSchallenberg/pokedex/blob/main/files/screenshot-responsive.png
 
--------------------------------------------------
+https://github.com/NeleSchallenberg/pokedex/blob/main/files/screenshot-mobile.png
 
-Font: Outfit, sans-serif, regular & extra-bold
+
+---
+# Built with:
+
+- HTML
+- CSS
+- Javascript
+- jQuery
+- Bootstrap
+
+---
+
+# Fonts used:
+
+Outfit, sans-serif, regular & extra-bold
 https://fonts.google.com/share?selection.family=Outfit:wght@400;800
 
-----------------------
+---
 
-Features that I want to implement:
+# Features that I still want to implement:
 
 - Search function
 
+
 ---
+# Live version:
 https://github.com/NeleSchallenberg/pokedex
+
+# Link to API:
+https://pokeapi.co/api/v2/pokemon/?limit=500
