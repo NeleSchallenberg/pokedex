@@ -81,7 +81,7 @@ let pokemonRepository = (function () {
           details.types.forEach(function (item) {
             types.push(item.type.name);
           });
-          item.types = types.join(' / ');
+          item.types = types.join(' & ');
           let abilities = [];
           details.abilities.forEach (function (item) {
             abilities.push(item.ability.name);
@@ -111,12 +111,12 @@ let pokemonRepository = (function () {
       modalBody.empty();
   
       modalTitle.append(pokemon.name);
-      modalBody.append(`<img class='pokemon-image-front border mb-3' width=50% src='${pokemon.frontImageUrl}'>`);
-      modalBody.append(`<img class='pokemon-image-back border mb-3' width=50% src='${pokemon.backImageUrl}'>`);
-      modalBody.append(`<p class='pokemon-height bg-secondary'>HEIGHT - ${pokemon.height}</p>`);
-      modalBody.append(`<p class='pokemon-weight bg-info'>WEIGHT - ${pokemon.weight}</p>`);
-      modalBody.append(`<p class='pokemon-types text-uppercase bg-secondary'>TYPE - ${pokemon.types}</p>`);
-      modalBody.append(`<p class='pokemon-abilities text-uppercase bg-info'>ABILITIES - ${pokemon.abilities}</p>`)
+      modalBody.append(`<img class='pokemon-image-front mb-3' width=50% src='${pokemon.frontImageUrl}'>`);
+      modalBody.append(`<img class='pokemon-image-back mb-3' width=50% src='${pokemon.backImageUrl}'>`);
+      modalBody.append(`<p class='pokemon-height'>HEIGHT - ${pokemon.height}</p>`);
+      modalBody.append(`<p class='pokemon-weight'>WEIGHT - ${pokemon.weight}</p>`);
+      modalBody.append(`<p class='pokemon-types text-uppercase'>TYPE - ${pokemon.types}</p>`);
+      modalBody.append(`<p class='pokemon-abilities text-uppercase'>${pokemon.abilities}</p>`)
     }
 
     return {
