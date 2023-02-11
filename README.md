@@ -3,9 +3,9 @@
 This project is a simple small **Pokédex** App to display a list of Pokémon and data points in detail, that loads data from an external API (limited to 500).
 
 ---
-https://github.com/NeleSchallenberg/pokedex/blob/main/files/screenshot-responsive.png
+![Pokedex web view](https://github.com/NeleSchallenberg/pokedex/blob/main/files/screenshot-responsive.png)
 
-https://github.com/NeleSchallenberg/pokedex/blob/main/files/screenshot-mobile.png
+![Pokedex mobile view](https://github.com/NeleSchallenberg/pokedex/blob/main/files/screenshot-mobile.png)
 
 
 ---
