@@ -23,11 +23,15 @@ h1 {
     font-weight: 800;
     text-align: center;
 }
+.container-fluid {
+    padding: 0 15px;
+}
 ul {
     list-style: none;
+    padding: 0;
 }
 li {
-    margin: 0 auto;
+    margin: 0;
 }
 .list-button {
     background-color: lightcyan;

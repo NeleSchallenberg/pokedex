@@ -22,7 +22,7 @@ let pokemonRepository = (function () {
       let pokemonList = document.querySelector('.pokemon-list');
       let listItem = document.createElement('li');
       // Added Bootstrap utility class to list element
-      listItem.classList.add('group-list-item', 'col', 'col-md-8', 'col-xl-6');
+      listItem.classList.add('row', 'justify-content-center');
       let button = document.createElement('button');
       button.innerText = pokemon.name;
       button.classList.add(
@@ -30,10 +30,10 @@ let pokemonRepository = (function () {
         'btn',
         'btn-lg',
         'btn-outline-secondary',
-        'btn-block',
         'shadow-sm',
         'text-uppercase',
-
+        'col-10',
+        'col-md-6',
       );
       button.setAttribute('data-toggle', 'modal');
       button.setAttribute('data-target', '#pokemon-card');
