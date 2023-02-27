@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="dist/styles.production.min.css">
+    <link rel="stylesheet" type="text/css" href="src/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;800&display=swap" rel="stylesheet">
   </head>
   
@@ -31,7 +31,7 @@
       <h1>POKÉDEX</h1>
       <!-- Adding Bootstrap utility class to pokemon list -->
       <div class="container-fluid">
-        <ul class="pokemon-list"></ul>
+        <ul class="pokemon-list row"></ul>
         <!-- Adding Bootstrap modal -->
         <div id="pokemon-card" class="modal fade" role="dialog">
           <div class="modal-dialog modal-dialog-centered">
@@ -61,6 +61,6 @@
     <!-- Custom JS -->
     <script src="src/js/promise-polyfill.js"></script>
     <script src="src/js/fetch-polyfill.js"></script>
-    <script src="dist/scripts.min.js"></script>
+    <script src="src/js/scripts.js"></script>
   </body>
 </html>

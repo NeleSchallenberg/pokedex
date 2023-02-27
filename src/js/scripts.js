@@ -22,7 +22,7 @@ let pokemonRepository = (function () {
     let pokemonList = document.querySelector('.pokemon-list');
     let listItem = document.createElement('li');
     // Added Bootstrap utility class to list element
-    listItem.classList.add('row', 'justify-content-center');
+    listItem.classList.add('col-md-3', 'col-sm-6', 'col-lg-2', 'py-3');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
     button.classList.add(
@@ -32,8 +32,7 @@ let pokemonRepository = (function () {
       'btn-outline-secondary',
       'shadow-sm',
       'text-uppercase',
-      'col-10',
-      'col-md-6',
+      'w-100',
     );
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#pokemon-card');
@@ -121,7 +120,8 @@ let pokemonRepository = (function () {
 
   // Function to filter through pokemon with search bar
   let searchBar = $(".form-control");
-  searchBar.on("keypress", function () {
+  searchBar.addEventListener("change", function (e) {
+    console.log(e);
     let pokemonList = $(".pokemon-list");
     pokemonList.empty();
     getByName($(".form-control").val()).forEach(function (pokemon) {
@@ -130,6 +130,10 @@ let pokemonRepository = (function () {
   });
   
   function getByName(search) {
+    if (search === '') {
+        return pokemonList;
+      }
+      console.log(search);
     return pokemonList.filter(function (pokemon) {
       return pokemon.name.toLowerCase().includes(search.toLowerCase());
     });
