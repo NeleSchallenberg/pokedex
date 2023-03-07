@@ -119,8 +119,8 @@ let pokemonRepository = (function () {
   }
 
   // Function to filter through pokemon with search bar
-  let searchBar = $(".form-control");
-  searchBar.addEventListener("change", function (e) {
+  let searchBar = $("#search-bar");
+  searchBar.on("input", function (e) {
     console.log(e);
     let pokemonList = $(".pokemon-list");
     pokemonList.empty();
